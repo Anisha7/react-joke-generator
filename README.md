@@ -72,5 +72,6 @@ http://www.icndb.com/api/
 https://icanhazdadjoke.com/api
 https://github.com/15Dkatz/official_joke_api
 https://geek-jokes.sameerkumar.website/api
+https://www.programmableweb.com/api/ron-swanson-quotes
 
 
