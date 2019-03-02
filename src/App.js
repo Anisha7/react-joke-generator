@@ -8,7 +8,7 @@ import CategoryButton from './category-button'
 class App extends Component {
   constructor(props) {
     super(props)
-    this.categories = ['Chuck Norris', 'Dad', 'Random', 'Geek', 'Ron Swanson', 'Startup Idea']
+    this.categories = ['Chuck Norris', 'Dad', 'Random', 'Geek', 'Ron Swanson', 'Startup Idea', 'Yo Momma', 'Buzzword']
     this.state = {
       currCategory : null,
       currJoke: "",
@@ -59,6 +59,10 @@ class App extends Component {
       this.ronSwansonJoke()
     } else if (cat === 'Startup Idea') {
       this.startupJoke()
+    } else if (cat === 'Yo Momma') {
+      this.yoMommaJoke()
+    } else if (cat === 'Buzzword') {
+      this.buzzwordJoke()
     }
   }
 
@@ -157,6 +161,41 @@ class App extends Component {
             }
         ).catch((err) => { console.log(err.message) })
   }
+
+  yoMommaJoke() {
+    let proxyURL = 'https://cors-anywhere.herokuapp.com/'
+    let url = 'https://api.yomomma.info/'
+    fetch(proxyURL+url)
+        .then(res => {
+            console.log(res)
+            return res.json()
+        }).then(
+            (result) => { 
+                console.log(result)
+                let joke = result.joke
+                console.log(joke)
+                this.setState({currJoke: joke})
+            }
+        ).catch((err) => { console.log(err.message) })
+  }
+
+  buzzwordJoke() {
+    let proxyURL = 'https://cors-anywhere.herokuapp.com/'
+    let url = 'https://corporatebs-generator.sameerkumar.website/'
+    fetch(proxyURL+url)
+        .then(res => {
+            console.log(res)
+            return res.json()
+        }).then(
+            (result) => { 
+                console.log(result)
+                let joke = result.phrase
+                console.log(joke)
+                this.setState({currJoke: joke})
+            }
+        ).catch((err) => { console.log(err.message) })
+  }
+  
 
   render() {
     // let joke = this.getJoke()

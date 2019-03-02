@@ -74,5 +74,7 @@ https://github.com/15Dkatz/official_joke_api
 https://geek-jokes.sameerkumar.website/api
 https://www.programmableweb.com/api/ron-swanson-quotes
 http://itsthisforthat.com/api.php?json
+https://api.yomomma.info/
+
 
 
