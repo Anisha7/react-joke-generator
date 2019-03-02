@@ -8,7 +8,7 @@ import CategoryButton from './category-button'
 class App extends Component {
   constructor(props) {
     super(props)
-    this.categories = ['Chuck Norris', 'Dad', 'Random', 'Geek', 'Ron Swanson', 'Startup Idea', 'Yo Momma', 'Buzzword', 'Kanye West']
+    this.categories = ['Chuck Norris', 'Dad', 'Random', 'Geek', 'Ron Swanson', 'Startup Idea', 'Yo Momma', 'Buzzword', 'Kanye West', 'Star Wars']
     this.state = {
       currCategory : null,
       currJoke: "",
@@ -65,6 +65,8 @@ class App extends Component {
       this.buzzwordJoke()
     } else if (cat === 'Kanye West') {
       this.kanyeJoke()
+    } else if (cat === 'Star Wars') {
+      this.starWarsJoke()
     }
   }
 
@@ -208,6 +210,22 @@ class App extends Component {
             (result) => { 
                 console.log(result)
                 let joke = result.quote
+                console.log(joke)
+                this.setState({currJoke: joke})
+            }
+        ).catch((err) => { console.log(err.message) })
+  }
+
+  starWarsJoke() {
+    let url = 'http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote'
+    fetch(url)
+        .then(res => {
+            console.log(res)
+            return res.json()
+        }).then(
+            (result) => { 
+                console.log(result)
+                let joke = result.starWarsQuote
                 console.log(joke)
                 this.setState({currJoke: joke})
             }

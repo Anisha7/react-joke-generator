@@ -75,6 +75,10 @@ https://geek-jokes.sameerkumar.website/api
 https://www.programmableweb.com/api/ron-swanson-quotes
 http://itsthisforthat.com/api.php?json
 https://api.yomomma.info/
+https://corporatebs-generator.sameerkumar.website/
+https://api.kanye.rest/
+http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote
+
 
 
 
