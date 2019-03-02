@@ -28,6 +28,7 @@ body {
   flex-direction: row;
   text-decoration: none;
   list-style-type: none;
+  flex-wrap: wrap;
 }
 
 p {
