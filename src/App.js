@@ -217,8 +217,9 @@ class App extends Component {
   }
 
   starWarsJoke() {
+    let proxyURL = 'https://cors-anywhere.herokuapp.com/'
     let url = 'http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote'
-    fetch(url)
+    fetch(proxyURL+url)
         .then(res => {
             console.log(res)
             return res.json()
