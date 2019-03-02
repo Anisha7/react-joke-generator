@@ -8,7 +8,7 @@ import CategoryButton from './category-button'
 class App extends Component {
   constructor(props) {
     super(props)
-    this.categories = ['Chuck Norris', 'Dad', 'Random', 'Geek', 'Ron Swanson']
+    this.categories = ['Chuck Norris', 'Dad', 'Random', 'Geek', 'Ron Swanson', 'Startup Idea']
     this.state = {
       currCategory : null,
       currJoke: "",
@@ -57,6 +57,8 @@ class App extends Component {
       this.geekJoke()
     } else if (cat === 'Ron Swanson'){
       this.ronSwansonJoke()
+    } else if (cat === 'Startup Idea') {
+      this.startupJoke()
     }
   }
 
@@ -133,6 +135,23 @@ class App extends Component {
             (result) => { 
                 console.log(result)
                 let joke = result
+                console.log(joke)
+                this.setState({currJoke: joke})
+            }
+        ).catch((err) => { console.log(err.message) })
+  }
+
+  startupJoke() {
+    let proxyURL = 'https://cors-anywhere.herokuapp.com/'
+    let url = 'http://itsthisforthat.com/api.php?json'
+    fetch(proxyURL+url)
+        .then(res => {
+            console.log(res)
+            return res.json()
+        }).then(
+            (result) => { 
+                console.log(result)
+                let joke = result.this + ' for ' + result.that
                 console.log(joke)
                 this.setState({currJoke: joke})
             }
