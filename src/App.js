@@ -55,9 +55,9 @@ class App extends Component {
   }
 
   chuckNorrisJoke() {
-    fetch('http://api.icndb.com/jokes/random?escape=javascript', {headers:{
-      'Access-Control-Allow-Origin':'*'
-      }},)
+    let proxyURL = 'https://cors-anywhere.herokuapp.com/'
+    let url = 'http://api.icndb.com/jokes/random?escape=javascript'
+    fetch(proxyURL+url)
         .then(res => {
             console.log(res)
             return res.json()
