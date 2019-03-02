@@ -8,7 +8,7 @@ import CategoryButton from './category-button'
 class App extends Component {
   constructor(props) {
     super(props)
-    this.categories = ['Chuck Norris', 'Dad', 'Random', 'Geek', 'Ron Swanson', 'Startup Idea', 'Yo Momma', 'Buzzword']
+    this.categories = ['Chuck Norris', 'Dad', 'Random', 'Geek', 'Ron Swanson', 'Startup Idea', 'Yo Momma', 'Buzzword', 'Kanye West']
     this.state = {
       currCategory : null,
       currJoke: "",
@@ -63,6 +63,8 @@ class App extends Component {
       this.yoMommaJoke()
     } else if (cat === 'Buzzword') {
       this.buzzwordJoke()
+    } else if (cat === 'Kanye West') {
+      this.kanyeJoke()
     }
   }
 
@@ -196,13 +198,24 @@ class App extends Component {
         ).catch((err) => { console.log(err.message) })
   }
   
+  kanyeJoke() {
+    let url = 'https://api.kanye.rest/'
+    fetch(url)
+        .then(res => {
+            console.log(res)
+            return res.json()
+        }).then(
+            (result) => { 
+                console.log(result)
+                let joke = result.quote
+                console.log(joke)
+                this.setState({currJoke: joke})
+            }
+        ).catch((err) => { console.log(err.message) })
+  }
 
   render() {
-    // let joke = this.getJoke()
-    // console.log(joke)
-    // let joke = this.currJoke
-    console.log("PRINTING RENDER JOKE")
-    // console.log(joke)
+    
     return (
       <div className="App">
         <h1> MAKE ME LAUGH! </h1>
