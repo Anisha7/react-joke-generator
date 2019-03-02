@@ -55,7 +55,9 @@ class App extends Component {
   }
 
   chuckNorrisJoke() {
-    fetch('http://api.icndb.com/jokes/random?escape=javascript')
+    fetch('http://api.icndb.com/jokes/random?escape=javascript', {headers:{
+      'Access-Control-Allow-Origin':'*'
+      }},)
         .then(res => {
             console.log(res)
             return res.json()
