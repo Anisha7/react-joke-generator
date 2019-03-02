@@ -8,7 +8,7 @@ import CategoryButton from './category-button'
 class App extends Component {
   constructor(props) {
     super(props)
-    this.categories = ['Chuck Norris', 'Dad']
+    this.categories = ['Chuck Norris', 'Dad', 'Random', 'Geek', 'Ron Swanson']
     this.state = {
       currCategory : null,
       currJoke: "",
@@ -22,9 +22,9 @@ class App extends Component {
   // the parameter function transforms each item
   getCategories() {
     return this.categories.map((cat, i) => {
-      let color = '#e59244'
+      let color = 'rgb(170, 55, 206)'
       if (this.state.currCategory === cat) {
-        color = 'rgb(45, 50, 174)'
+        color = '#e59244'
       }
       return (<li key={cat}>
         <CategoryButton label={cat} style={{backgroundColor: color}} onClick={(e) => {
@@ -51,6 +51,12 @@ class App extends Component {
       this.chuckNorrisJoke()
     } else if (cat === 'Dad') {
       this.dadJoke()
+    } else if (cat === 'Random') {
+      this.randomJoke()
+    } else if (cat === 'Geek') {
+      this.geekJoke()
+    } else if (cat === 'Ron Swanson'){
+      this.ronSwansonJoke()
     }
   }
 
@@ -81,6 +87,54 @@ class App extends Component {
                 console.log(result)
                 console.log(result.joke)
                 this.setState({currJoke: result.joke})
+            }
+        ).catch((err) => { console.log(err.message) })
+  }
+
+  randomJoke() {
+    let url = 'https://official-joke-api.appspot.com/random_joke'
+    fetch(url)
+        .then(res => {
+            console.log(res)
+            return res.json()
+        }).then(
+            (result) => { 
+                console.log(result)
+                let joke = result.setup + result.punchline
+                console.log(joke)
+                this.setState({currJoke: joke})
+            }
+        ).catch((err) => { console.log(err.message) })
+  }
+
+  geekJoke() {
+    let url = 'https://geek-jokes.sameerkumar.website/api'
+    fetch(url)
+        .then(res => {
+            console.log(res)
+            return res.json()
+        }).then(
+            (result) => { 
+                console.log(result)
+                let joke = result
+                console.log(joke)
+                this.setState({currJoke: joke})
+            }
+        ).catch((err) => { console.log(err.message) })
+  }
+  
+  ronSwansonJoke() {
+    let url = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes'
+    fetch(url)
+        .then(res => {
+            console.log(res)
+            return res.json()
+        }).then(
+            (result) => { 
+                console.log(result)
+                let joke = result
+                console.log(joke)
+                this.setState({currJoke: joke})
             }
         ).catch((err) => { console.log(err.message) })
   }
