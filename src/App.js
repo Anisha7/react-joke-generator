@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CategoryButton from './category-button'
+import InputField from './input-field';
 // import { chuckNorrisJoke } from './jokes';
-
 
 class App extends Component {
   constructor(props) {
     super(props)
-    this.categories = ['Chuck Norris', 'Dad', 'Random', 'Geek', 'Ron Swanson', 'Startup Idea', 'Yo Momma', 'Buzzword', 'Kanye West', 'Star Wars']
+    this.categories = ['Chuck Norris', 'Dad', 'Random', 'Geek', 'Ron Swanson', 'Startup Idea', 'Yo Momma', 'Buzzword', 'Kanye West', 'Star Wars', 'User Added Jokes']
     this.state = {
       currCategory : null,
       currJoke: "",
+      userJokes: [],
     }
 
     // [{name:"Toys", selected: false}]
@@ -67,6 +68,8 @@ class App extends Component {
       this.kanyeJoke()
     } else if (cat === 'Star Wars') {
       this.starWarsJoke()
+    } else if (cat === 'User Added Jokes') {
+      this.userJoke()
     }
   }
 
@@ -233,17 +236,30 @@ class App extends Component {
         ).catch((err) => { console.log(err.message) })
   }
 
+  userJoke() {
+    let l = this.state.userJokes.length
+    let i = Math.floor(Math.random()*l)
+    this.setState({currJoke: this.state.userJokes[i]})
+  }
+
+  addJoke(joke) {
+    this.state.userJokes.push(joke)
+    console.log(this.state.userJokes)
+  }
+
   render() {
     
     return (
       <div className="App">
         <h1> MAKE ME LAUGH! </h1>
         <p>Instructions: Each time you click the button, it will give you a new joke!</p>
+        <h2>{this.state.currJoke}</h2>
         <ul className = "categoryList">
           {this.getCategories()}
         </ul>
 
-        <p>{this.state.currJoke}</p>
+        <p> Add your own joke below: </p>
+        <InputField addJoke={(joke) => this.addJoke(joke)} />
       
       </div>
     );

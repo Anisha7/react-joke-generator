@@ -31,7 +31,11 @@ body {
   flex-wrap: wrap;
 }
 
-p {
+.App h1, .App p {
+  color: #e59244
+}
+
+.App h2 {
   margin-left: 20px;
   margin-right: 20px;
 }

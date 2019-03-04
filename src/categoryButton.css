@@ -1,12 +1,12 @@
 button {
-    padding: 20px;
-    padding-right: 30px;
-    padding-left: 30px;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
     margin-right: 10px;
     margin-top: 10px;
     margin-left: 0px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     background-color: rgb(170, 55, 206);
     color: white;
     border-radius: 15px;
