@@ -113,7 +113,7 @@ class App extends Component {
         }).then(
             (result) => { 
                 console.log(result)
-                let joke = result.setup + result.punchline
+                let joke = result.setup + ' ' + result.punchline
                 console.log(joke)
                 this.setState({currJoke: joke})
             }
