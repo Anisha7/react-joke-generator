@@ -3,6 +3,19 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+### API's Used
+http://www.icndb.com/api/
+https://icanhazdadjoke.com/api
+https://github.com/15Dkatz/official_joke_api
+https://geek-jokes.sameerkumar.website/api
+https://www.programmableweb.com/api/ron-swanson-quotes
+http://itsthisforthat.com/api.php?json
+https://api.yomomma.info/
+https://corporatebs-generator.sameerkumar.website/
+https://api.kanye.rest/
+http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -70,17 +83,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-### API's Used
-http://www.icndb.com/api/
-https://icanhazdadjoke.com/api
-https://github.com/15Dkatz/official_joke_api
-https://geek-jokes.sameerkumar.website/api
-https://www.programmableweb.com/api/ron-swanson-quotes
-http://itsthisforthat.com/api.php?json
-https://api.yomomma.info/
-https://corporatebs-generator.sameerkumar.website/
-https://api.kanye.rest/
-http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote
 
 
 
