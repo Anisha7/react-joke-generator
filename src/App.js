@@ -5,6 +5,27 @@ import CategoryButton from './category-button'
 import InputField from './input-field';
 // import { chuckNorrisJoke } from './jokes';
 
+function isMaliciousString(val) {
+  if (typeof val !== "string") {
+      return true
+  }
+  
+  let regex = /^[A-Za-z0-9\-\_]+/
+  if (!val.match(regex)) {
+      return true
+  }
+
+  let validChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-@."
+  for (let i = 0; i < val.length; i++) {
+      if (!validChars.includes(val[i])) {
+          return true
+      }
+  }
+
+  return false
+}
+
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -243,8 +264,10 @@ class App extends Component {
   }
 
   addJoke(joke) {
-    this.state.userJokes.push(joke)
-    console.log(this.state.userJokes)
+    if (!isMaliciousString(joke)) {
+      this.state.userJokes.push(joke)
+      console.log(this.state.userJokes)
+    }
   }
 
   render() {
